@@ -8,6 +8,7 @@
     min-width: 500px;
     height: 364px;
     border-radius: 19px;
+    position: relative;
 }
 #AdviceHeader{
     letter-spacing: 7px;
@@ -32,9 +33,9 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    position: relative;
-    top: 32%;
     border: none;
+    position: absolute;
+    bottom: -2rem;
 }
 
 #DiceWrapper:hover {
