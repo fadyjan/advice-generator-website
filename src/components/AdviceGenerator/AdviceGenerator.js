@@ -9,7 +9,7 @@ const AdviceGenerator = () => {
   const [advice, setAdvice] = useState([]);
   const [flag, setFlag] = useState(true);
   const [btnflag, setBtnflag] = useState(false);
-  const [stateImage, setStateImage] = useState(true);
+  const [stateImage, setStateImage] = useState(window.innerWidth);
 
   useEffect(() => {
     if (flag === true) {
@@ -28,18 +28,13 @@ const AdviceGenerator = () => {
       setFlag(false);
     }
     const handleWindowResize = () => {
-        if (window.innerWidth >1000) {
-          setStateImage(true)
-        } else {
-          setStateImage(false)
-  
-        }
-      };
-      window.addEventListener('resize', handleWindowResize);
-  
-      return () => {
-        window.removeEventListener('resize', handleWindowResize);
-      };
+      setStateImage(window.innerWidth);
+    };
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, [flag]);
 
   return (
@@ -48,7 +43,7 @@ const AdviceGenerator = () => {
       <p id="AdviceParaphraphe">"{advice.advice}"</p>
       <img
         alt=""
-        src={stateImage ? DviderImg : DviderImgMob}
+        src={stateImage > 500 ? DviderImg : DviderImgMob}
         id="DviderImg"
       ></img>
       <button
